@@ -1,0 +1,26 @@
+extends layout 
+
+block content 
+    h1(class='text-3xl font-bold my-2') Author: #{author.name}
+    p #{author.lifespan}
+
+
+    div(class="ml-4 mt-4")
+        h4(class='text-xl font-bold my-2')  Books 
+
+        dl 
+            each book in author_books
+                dt(class="leading-9")  
+                    a(href=book.url class='text-blue-600') #{book.title}
+                dd  #{book.summary}
+                
+            else 
+                p(class="leading-9")   This author has no books
+
+    hr
+
+    p(class="mt-5")
+        a(href=author.url+'/delete' class="text-blue-600") Delete Author
+
+    p
+        a(href=author.url+'/update' class="text-blue-600") Update Author

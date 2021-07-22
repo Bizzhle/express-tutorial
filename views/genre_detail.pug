@@ -1,0 +1,26 @@
+extends layout 
+
+block content
+
+    h1(class='text-3xl font-bold m-2') Genre: #{genre.name}
+
+    div(class="ml-4 mt-4")
+
+        h4(class="my-4") Books 
+
+        dl 
+            each book in genre_books
+                dt(class="leading-9")  
+                    a(href=book.url class='text-blue-600') #{book.title}
+                dd  #{book.summary}
+                
+            else 
+                p   This genre has no books
+
+    hr
+
+    p(class="mt-5")
+            a(href=genre.url+'/delete' class="text-blue-600") Delete Genre
+
+    p(class="mt-5")
+            a(href=genre.url+'/update' class="text-blue-600") Update Genre

@@ -1,0 +1,13 @@
+extends layout 
+
+block content
+    h1(class='text-3xl font-bold m-2')= title 
+
+    ul(class='list-disc list-inside') 
+        each val in list_genres
+            li
+                a(href=val.url class='text-blue-600') #{val.name}
+                
+
+        else
+            li There are no genres.
